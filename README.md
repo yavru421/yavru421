@@ -1,28 +1,51 @@
-<!-- Multi-Line Readable Neon Banner -->
+<!-- 🪓 Wild Carpenter Mindset Banner -->
 <p align="center">
-  <!-- Top Line: Name + Core Skills -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:0f0f0f,50:0fffc0,100:0a0a0a&text=YAVRU421%20%7C%20Blender%20%2B%20FFmpeg%20%2B%20AI&fontColor=0fffc0&fontSize=32&fontAlignY=40&animation=twinkling" alt="Name & Core Skills"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:4B3621,50:A0522D,100:8B5A2B&text=Carpenter%20Mindset%20in%20Tech&fontColor=FFD700&fontSize=40&fontAlignY=40&animation=twinkling" alt="Banner"/>
 </p>
 
-![llama_detective_bg](https://github.com/user-attachments/assets/5148dae6-e482-4ce6-a3cd-0d5fd92a9392)
-
-
+<!-- 🦙 Wild Llama -->
 <p align="center">
-  <!-- Bottom Line: Additional Skills + Vibes -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:0f0f0f,50:ff00ff,100:0a0a0a&text=GPU%20Acceleration%20%7C%20VFX%20Automation%20%7C%20CUDA%20%&fontColor=ff00ff&fontSize=28&fontAlignY=40&animation=twinkling" alt="Additional Skills & Cyber Vibes"/>
+  <img src="https://github.com/user-attachments/assets/5148dae6-e482-4ce6-a3cd-0d5fd92a9392" width="400" alt="Wild Llama"/>
 </p>
 
-<!--
-**yavru421/yavru421** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+# 📊 GitHub Analytics
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=yavru421&theme=gruvbox&show_icons=true&hide_border=true&count_private=true" height="180"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=yavru421&theme=gruvbox&hide_border=true" height="180"/>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yavru421&layout=compact&theme=gruvbox&hide_border=true" height="180"/>
+</p>
+
+---
+
+# 🏆 Trophies Wall
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=yavru421&theme=gruvbox&no-frame=true&no-bg=true&row=2&column=5"/>
+</p>
+
+---
+
+# 🐍 Contribution Snake
+<p align="center">
+  <img src="https://raw.githubusercontent.com/platane/platane/output/github-contribution-grid-snake-dark.svg" alt="snake gif"/>
+</p>
+
+---
+
+# 🚀 Tools of the Trade
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,rust,blender,opencv,raspberrypi,aws,docker,linux,ubuntu,git,github,ffmpeg,react,threejs,js,ts,html,css&theme=dark" />
+</p>
+
+---
+
+# 🌍 Visitor Counter
+<p align="center">
+  <img src="https://visitcount.itsvg.in/api?id=yavru421&icon=2&color=12" />
+</p>
