@@ -8,7 +8,8 @@
   <img src="https://github.com/user-attachments/assets/5148dae6-e482-4ce6-a3cd-0d5fd92a9392" width="400" alt="Wild Llama"/>
 </p>
 
----
+---<img width="1324" height="868" alt="vsess" src="https://github.com/user-attachments/assets/203dc25f-6977-4176-bc32-79e44ca92cc5" />
+
 
 # 📊 GitHub Analytics
 
