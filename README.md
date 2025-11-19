@@ -48,7 +48,6 @@ That single equation powers everything I build—from GPU video engines to auton
 </p>
 
 - **VSEndless**  – Blender + FFmpeg + CUDA compositing engine for real-time automation.  
-- **LlamaMachinery**  – APT-driven agent framework orchestrating modular processes.  
 - **RangITang v4**  – Browser intelligence layer for structured web data extraction.  
 - **APT Experiments**  – Sandbox for modular computation and system logic research.
 
