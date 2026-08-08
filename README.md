@@ -6,8 +6,8 @@
 </p>
 
 <p align="center">
-  <a href="https://dotnet.microsoft.com/"><img src="https://img.shields.io/badge/C%23_.NET_9-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" /></a>
-  <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor"><img src="https://img.shields.io/badge/Blazor_WASM-512BD4?style=for-the-badge&logo=blazor&logoColor=white" /></a>
+  <a href="https://dotnet.microsoft.com/"><img src="https://img.shields.io/badge/C%23_.NET_10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" /></a>
+  <a href="https://github.com/yavru421/speech-mcp-server"><img src="https://img.shields.io/badge/Kokoro_Speech_MCP-000000?style=for-the-badge&logo=modelcontextprotocol&logoColor=white" /></a>
   <a href="https://workers.cloudflare.com/"><img src="https://img.shields.io/badge/Cloudflare_Workers_%26_DO-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" /></a>
   <a href="https://duckdb.org/"><img src="https://img.shields.io/badge/DuckDB_Telemetry-FFF000?style=for-the-badge&logo=duckdb&logoColor=black" /></a>
   <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" /></a>
@@ -32,6 +32,8 @@ flowchart TD
 
     subgraph L3["🔌 Layer 3: Tethered Sidecars & MCP Mesh"]
         Boroughs["Boroughs (PCIe / USB Accelerators & MCP Protocol Sidecars)"]
+        SpeechMCP["Speech MCP Server (C# Kokoro ONNX Speech Engine)"]
+        Boroughs --- SpeechMCP
     end
 
     subgraph L4["📡 Layer 4: Field Devices & Network Fabric"]
@@ -58,6 +60,7 @@ flowchart TD
     style MetroNode fill:#000000,color:#fff,stroke:#333,stroke-width:2px
     style GPU fill:#76B900,color:#fff,stroke:#333,stroke-width:2px
     style Boroughs fill:#512BD4,color:#fff,stroke:#333,stroke-width:2px
+    style SpeechMCP fill:#000000,color:#fff,stroke:#512BD4,stroke-width:2px
     style Villages fill:#333333,color:#fff,stroke:#333,stroke-width:2px
     style Megalopolis fill:#222222,color:#fff,stroke:#333,stroke-width:2px
     style Watchtowers fill:#F38020,color:#fff,stroke:#333,stroke-width:2px
@@ -76,7 +79,7 @@ flowchart TD
 | Canonical Metropolis Entity | Classification | System Role & Hardware/Software Bounds |
 | :--- | :--- | :--- |
 | **`Metropolis-Prime` / `MetroNode`** | Primary Host PC | High-throughput local compute host, NVENC video encoding (1080p60), and orchestrator kernel. |
-| **`Boroughs`** | Tethered Sidecars | Attached PCIe cards, USB accelerators, and local MCP sidecars (`workspace-execution`, `duckdb-supercharger`, `agy-mcp`, `orchestrator-do`, `cloudflare-inference`). |
+| **`Boroughs`** | Tethered Sidecars | Attached PCIe cards, USB accelerators, and local MCP sidecars (`workspace-execution`, `speech-mcp-server`, `duckdb-supercharger`, `agy-mcp`, `orchestrator-do`). |
 | **`Villages`** | Field SBC Devices | Standalone, battery-powered Raspberry Pi and field SBC nodes executing edge telemetry. |
 | **`Megalopolis`** | Multi-Host Fabric | Inter-node networking fabric linking `MetroNode`, `Boroughs`, `Villages`, and edge services. |
 | **`Watchtowers`** | Cloudflare Edge Router | Edge routing layer using Cloudflare Workers, **Durable Objects (DO)**, and Workers AI (<35ms latency). |
@@ -97,10 +100,11 @@ flowchart TD
 
 ---
 
-## 🚀 Live Production Portfolio & Interactive Demos (`dondlingergc.com`)
+## 🚀 Live Production Portfolio & Featured Projects (`dondlingergc.com`)
 
-| Production Service | Live Endpoint | Status Badge & Highlights |
+| Production Service / Repo | Live Endpoint / Repository | Status Badge & Highlights |
 | :--- | :--- | :--- |
+| **Speech MCP Server** | [github.com/yavru421/speech-mcp-server](https://github.com/yavru421/speech-mcp-server) | [![Live](https://img.shields.io/badge/Open_Source-C%23_Kokoro_ONNX-000000.svg?style=flat-square&logo=github)](https://github.com/yavru421/speech-mcp-server) Zero-Latency Neural TTS MCP Engine |
 | **TAP Client** | [tap.dondlingergc.com](https://tap.dondlingergc.com) | [![Live](https://img.shields.io/badge/Live-MudBlazor_WASM-512BD4.svg?style=flat-square)](https://tap.dondlingergc.com) Enterprise Control Panel |
 | **Personalization Engine** | [personalization.dondlingergc.com](https://personalization.dondlingergc.com) | [![Live](https://img.shields.io/badge/Live-Taskbar_Bridge-F38020.svg?style=flat-square)](https://personalization.dondlingergc.com) Metropolis System Bridge |
 | **Skydrop File Transfer** | [skydrop.dondlingergc.com](https://skydrop.dondlingergc.com) | [![Live](https://img.shields.io/badge/Live-PeerJS_ZLA-000000.svg?style=flat-square)](https://skydrop.dondlingergc.com) Zero-Storage File Sharing |
@@ -115,6 +119,8 @@ flowchart TD
 ```
 ┌───────────────────────────────────────┬────────────────────────┬──────────────────────┐
 │ Benchmark Metric                      │ Local / Edge Target    │ Verified Result      │
+├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
+│ Kokoro Neural Audio Synthesis         │ Local C# (.NET 10)     │ <100ms startup / ONNX│
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
 │ DuckDB Telemetry Event Ingestion     │ Local Host (`MetroNode`)│ >50,000 events/sec   │
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
@@ -140,13 +146,13 @@ $$\mathcal{Y} = \mathcal{A}_n(\mathcal{A}_{n-1}(\dots \mathcal{A}_1(\mathcal{X})
 
 ```
 ┌─────────────────┬─────────────────────────────────────────────────────────────────┐
-│ Core Stack      │ C# (.NET 8/9), Rust, TypeScript, Python, SQL (DuckDB/SQLite)    │
+│ Core Stack      │ C# (.NET 9/10), Rust, TypeScript, Python, SQL (DuckDB/SQLite)   │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
 │ Edge Computing  │ Cloudflare Workers, Durable Objects (DO), D1, KV, Vectorize, R2 │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
 │ Frontend & PWA  │ Blazor WebAssembly (WASM), MudBlazor, ASP.NET Core, HTML5/CSS3  │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
-│ AI & Telemetry  │ Agentic MCP Sidecars, DuckDB Analytics, PyTorch CUDA, OpenCV    │
+│ AI & Telemetry  │ Agentic MCP Sidecars, Kokoro ONNX, DuckDB Analytics, PyTorch    │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
 │ Acceleration    │ FFmpeg, NVENC, NPP, OpenCL, Parametric OpenSCAD                 │
 └─────────────────┴─────────────────────────────────────────────────────────────────┘
@@ -167,3 +173,4 @@ $$\mathcal{Y} = \mathcal{A}_n(\mathcal{A}_{n-1}(\dots \mathcal{A}_1(\mathcal{X})
 
 - **Portfolio & Live Demos**: [dondlingergc.com](https://dondlingergc.com)
 - **GitHub Profile**: [github.com/yavru421](https://github.com/yavru421)
+
