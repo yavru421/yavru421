@@ -100,10 +100,22 @@ flowchart TD
 
 ---
 
+## ⚙️ Native Systems & Low-Latency Engines (Open-Source)
+
+| Engine / Component | Architecture / API | Telemetry & Latency | Source Repository |
+| :--- | :--- | :--- | :--- |
+| **`win32-process-array-dispatcher`** | Win32 `CreateProcessW` / C# P-Invoke | **$4.2\text{ ms}$** process spawn (vs $142\text{ ms}$ PowerShell) | [![GitHub](https://img.shields.io/badge/GitHub-win32--process--array--dispatcher-512BD4?style=flat-square&logo=github)](https://github.com/yavru421/win32-process-array-dispatcher) |
+| **`dxgi-cuda-frame-delta`** | Direct3D 11 DXGI + CUDA `sm_89` (AD107) | **$0.68\text{ ms}$** per 4K frame (**$1,470\text{ FPS}$**) | [![GitHub](https://img.shields.io/badge/GitHub-dxgi--cuda--frame--delta-76B900?style=flat-square&logo=github)](https://github.com/yavru421/dxgi-cuda-frame-delta) |
+| **`speech-mcp-server`** | C# .NET 10 / Kokoro ONNX / WASAPI | **$<100\text{ ms}$** startup, 48kHz neural voice | [![GitHub](https://img.shields.io/badge/GitHub-speech--mcp--server-000000?style=flat-square&logo=github)](https://github.com/yavru421/speech-mcp-server) |
+| **`METRO-SPEC-2026.08-REV1`** | Host Whitepaper & Distributed Consensus | Production Architecture Specification | [![Spec](https://img.shields.io/badge/Whitepaper-Architecture_Spec-F38020?style=flat-square)](https://dondlingergc.com/architecture) |
+
+---
+
 ## 🚀 Live Production Portfolio & Featured Projects (`dondlingergc.com`)
 
 | Production Service / Repo | Live Endpoint / Repository | Status Badge & Highlights |
 | :--- | :--- | :--- |
+| **Architecture Specification** | [dondlingergc.com/architecture](https://dondlingergc.com/architecture) | [![Live](https://img.shields.io/badge/Live-MudBlazor_Spec-F38020.svg?style=flat-square)](https://dondlingergc.com/architecture) Systems Whitepaper & Trace |
 | **Speech MCP Server** | [github.com/yavru421/speech-mcp-server](https://github.com/yavru421/speech-mcp-server) | [![Live](https://img.shields.io/badge/Open_Source-C%23_Kokoro_ONNX-000000.svg?style=flat-square&logo=github)](https://github.com/yavru421/speech-mcp-server) Zero-Latency Neural TTS MCP Engine |
 | **TAP Client** | [tap.dondlingergc.com](https://tap.dondlingergc.com) | [![Live](https://img.shields.io/badge/Live-MudBlazor_WASM-512BD4.svg?style=flat-square)](https://tap.dondlingergc.com) Enterprise Control Panel |
 | **Personalization Engine** | [personalization.dondlingergc.com](https://personalization.dondlingergc.com) | [![Live](https://img.shields.io/badge/Live-Taskbar_Bridge-F38020.svg?style=flat-square)](https://personalization.dondlingergc.com) Metropolis System Bridge |
@@ -120,9 +132,13 @@ flowchart TD
 ┌───────────────────────────────────────┬────────────────────────┬──────────────────────┐
 │ Benchmark Metric                      │ Local / Edge Target    │ Verified Result      │
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
+│ DXGI → CUDA Frame Delta (4K)          │ NVIDIA AD107 (SM_89)   │ 0.68ms (1,470 FPS)   │
+├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
+│ Direct Win32 CreateProcessW Dispatch  │ Local Host (C# Native) │ 4.20ms per process   │
+├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
 │ Kokoro Neural Audio Synthesis         │ Local C# (.NET 10)     │ <100ms startup / ONNX│
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
-│ DuckDB Telemetry Event Ingestion     │ Local Host (`MetroNode`)│ >50,000 events/sec   │
+│ DuckDB Telemetry Event Ingestion      │ Local Host (`MetroNode`)│ >50,000 events/sec   │
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
 │ Cloudflare Durable Object State Sync  │ Edge (`Watchtowers`)   │ <35ms global latency │
 ├───────────────────────────────────────┼────────────────────────┼──────────────────────┤
@@ -146,15 +162,15 @@ $$\mathcal{Y} = \mathcal{A}_n(\mathcal{A}_{n-1}(\dots \mathcal{A}_1(\mathcal{X})
 
 ```
 ┌─────────────────┬─────────────────────────────────────────────────────────────────┐
-│ Core Stack      │ C# (.NET 9/10), Rust, TypeScript, Python, SQL (DuckDB/SQLite)   │
+│ Core Stack      │ C# (.NET 9/10), C++ / CUDA (sm_89), Rust, TypeScript, DuckDB    │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
 │ Edge Computing  │ Cloudflare Workers, Durable Objects (DO), D1, KV, Vectorize, R2 │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
 │ Frontend & PWA  │ Blazor WebAssembly (WASM), MudBlazor, ASP.NET Core, HTML5/CSS3  │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
-│ AI & Telemetry  │ Agentic MCP Sidecars, Kokoro ONNX, DuckDB Analytics, PyTorch    │
+│ AI & Telemetry  │ Agentic MCP Sidecars, Kokoro ONNX, DuckDB Analytics, C-ABI FFI  │
 ├─────────────────┼─────────────────────────────────────────────────────────────────┤
-│ Acceleration    │ FFmpeg, NVENC, NPP, OpenCL, Parametric OpenSCAD                 │
+│ Acceleration    │ Direct3D 11 / DXGI, CUDA Warp Shuffles, FFmpeg, NVENC, NPP      │
 └─────────────────┴─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -171,6 +187,6 @@ $$\mathcal{Y} = \mathcal{A}_n(\mathcal{A}_{n-1}(\dots \mathcal{A}_1(\mathcal{X})
 
 ## 💼 Contact & Engineering Inquiries
 
+- **Architecture Whitepaper**: [dondlingergc.com/architecture](https://dondlingergc.com/architecture)
 - **Portfolio & Live Demos**: [dondlingergc.com](https://dondlingergc.com)
 - **GitHub Profile**: [github.com/yavru421](https://github.com/yavru421)
-
