@@ -77,9 +77,9 @@ All real-time desktop perception, vector retrieval, and audio transport run on d
 
 ## ⚙️ Open-Source Systems & Low-Latency Repositories
 
-- **[`dxgi-cuda-frame-delta`](https://github.com/yavru421/dxgi-cuda-frame-delta)**: Direct3D 11 DXGI surface mirror mapped directly into CUDA device memory for $<0.5\text{ ms}$ frame differencing.
+- **`dxgi-cuda-frame-delta`**: Direct3D 11 DXGI surface mirror mapped directly into CUDA device memory for $<0.5\text{ ms}$ frame differencing.
 - **[`speech-mcp-server`](https://github.com/yavru421/speech-mcp-server)**: High-performance C# .NET 10 MCP server wrapping Kokoro ONNX neural speech with low-latency WASAPI output.
-- **[`win32-process-array-dispatcher`](https://github.com/yavru421/win32-process-array-dispatcher)**: Bypasses slow shell interpreters (`cmd`/PowerShell) via direct `CreateProcessW` argument vectors ($4.2\text{ ms}$ execution).
+- **`win32-process-array-dispatcher`**: Bypasses slow shell interpreters (`cmd`/PowerShell) via direct `CreateProcessW` argument vectors ($4.2\text{ ms}$ execution).
 - **[`METRO-SPEC-2026`](https://dondlingergc.com/architecture)**: Complete system whitepaper on Zero-Liability Architecture and distributed multi-tier orchestration.
 
 ---
