@@ -15,6 +15,12 @@
 
 ---
 
+<p align="center">
+  <img src="./mcp_servers_foundry_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural" width="100%" />
+</p>
+
+---
+
 ## ⚡ The Sovereign CUDA Foundry: Zero-Liability AD107 Crux
 
 > *"Eliminating Python runtime garbage collection, PyTorch memory allocation bloat, and CPU frame roundtrips through standalone, zero-dependency C++/CUDA kernels operating directly at silicon speed."*
