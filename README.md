@@ -16,7 +16,7 @@
 ---
 
 <p align="center">
-  <img src="./mcp_servers_foundry_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural" width="100%" />
+  <img src="./mcp_servers_metropolishud_ducks_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural (Featuring MetropolisHUD Ducks)" width="100%" />
 </p>
 
 ---
