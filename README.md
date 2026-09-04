@@ -3,7 +3,7 @@
 </p>
 
 # John Dondlinger
-### Systems Architect | Low-Latency GPU Kernel Engineer | Creator of Metropolis & ZLA
+### Systems Architect | Low-Latency GPU Kernel Engineer | Distributed Systems
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=059669&center=true&vCenter=true&width=750&lines=NVIDIA+AD107+RTX+4060+Sovereign+CUDA+Suite;Bare-Metal+C%2B%2B%2FCUDA+Warp+Shuffles+%26+__dp4a;The+Archives+DuckDB+Telemetry+Lake;Zero-Liability+Architecture+(ZLA)+PWAs" alt="Typing SVG" />
@@ -19,11 +19,13 @@
 
 ---
 
-## ⚡ The Sovereign CUDA Foundry: Zero-Liability AD107 Crux
+> *"Engineering at the physical silicon boundary: eliminating Python runtime garbage collection, PyTorch memory allocation bloat, and CPU frame roundtrips through standalone, zero-dependency C++/CUDA kernels, in-process analytical engines, and zero-liability distributed edge systems."*
 
-> *"Eliminating Python runtime garbage collection, PyTorch memory allocation bloat, and CPU frame roundtrips through standalone, zero-dependency C++/CUDA kernels operating directly at silicon speed."*
+---
 
-All real-time desktop perception, vector retrieval, and audio transport run on dedicated, hand-crafted C++/CUDA kernels compiled to native Dynamic Link Libraries (`.dll` / `.pyd`) targeting the **NVIDIA GeForce RTX 4060 Laptop GPU (AD107 / SM_89, 8GB GDDR6, 32MB L2 Cache)**.
+## ⚡ The Sovereign CUDA Foundry (RTX 4060 AD107 / SM_89)
+
+All real-time desktop perception, vector retrieval, and audio transport run on dedicated, hand-crafted C++/CUDA kernels compiled to native Dynamic Link Libraries (`.dll` / `.pyd`) targeting the **NVIDIA GeForce RTX 4060 (AD107 / SM_89, 8GB GDDR6, 32MB L2 Cache)**.
 
 📄 **Technical Whitepaper / Hardware Spec:** [`SnapTempo_Sovereign_CUDA_Suite_v1.1.pdf`](./SnapTempo_Sovereign_CUDA_Suite_v1.1.pdf) *(Audited Ground-Truth Parity)*
 
@@ -42,6 +44,30 @@ All real-time desktop perception, vector retrieval, and audio transport run on d
 
 ---
 
+## 🚀 Production Systems & Solved Engineering Use Cases
+
+### 1. Sub-Millisecond Desktop Visual Intelligence (DirectX 11 $\rightarrow$ CUDA Zero-Copy)
+- **Problem**: Conventional desktop screen perception stacks rely on Python wrappers (`mss`, `Pillow`, `OpenCV`) that copy frames over PCIe to host RAM, convert color spaces in software, and introduce 50–300ms latency spikes with severe bus thrashing.
+- **Engineering Solution**: Bypassed CPU RAM entirely by mapping DirectX 11 DXGI Desktop Duplication swapchain textures directly into CUDA device memory. Authored `cu_adaptive_delta_fused` to compute 16x16 macroblock Mean Squared Error across consecutive frames via warp-level `__shfl_down_sync` register reductions. Emits a compact 1,020-byte bitmask in **$<0.5\text{ ms}$** ($>950\text{ FPS}$ capacity), reducing host bus bandwidth by 99.99%.
+
+### 2. 15-Nanosecond Vector Similarity Search Inside L2 Cache
+- **Problem**: Production vector search engines (Faiss, Annoy, Python vector frameworks) choke memory bandwidth, trigger Python GC pauses, and introduce PCIe bottlenecks when querying high-dimensional embedding spaces.
+- **Engineering Solution**: Quantized 384-dimensional Float32 embeddings to INT8 (SQ8), compressing the active vector index to $<19.2\text{ MB}$ to fit 100% inside the Ada Lovelace 32MB L2 Cache vault. Leveraged hardware `__dp4a` SIMD instructions to execute four dot products per clock cycle directly on-chip, achieving **$15\text{ ns}$ latency** and $>238\text{ Million}$ vector comparisons/sec with zero PyTorch runtime bloat.
+
+### 3. Continuous Biometric Liveness Verification (Zero-CAPTCHA Authentication)
+- **Problem**: Web application bot defenses rely on intrusive CAPTCHAs or brittle browser fingerprinting easily bypassed by headless automation scripts.
+- **Engineering Solution**: Engineered an ambient kinematic derivation pipeline streaming dual-screen cursor trajectories $[x(t), y(t), t]$. Computed continuous curvature radius $\kappa(t)$ and biological velocity scaling ($v \propto \kappa^{-1/3}$) via parallel Spearman rank correlation ($\rho_s \approx -0.333$) directly in GPU registers, verifying compliance with the neuro-computational Lacquaniti 2/3 Power Law in **$<300\ \mu\text{s}$** without user-facing friction.
+
+### 4. Real-Time Neural Speech Transport & Low-Latency WASAPI Streaming
+- **Problem**: Cloud TTS APIs introduce 200–600ms latency and recurring subscription bills, while local Python speech engines suffer from GIL locking and sluggish audio playback handoffs.
+- **Engineering Solution**: Built `kokoro_mel_bridge.dll`, streaming 24kHz raw PCM directly to GPU VRAM for Hanning windowing, 1D CUFFT, and 80-band Mel filterbank matrix projection in **$<0.1\text{ ms}$** ($>1000\times$ Real-Time Factor). Output streams directly into lock-free Windows WASAPI circular ring buffers via C# .NET 10, delivering zero-latency conversational cadence.
+
+### 5. Zero-Liability Privacy Architecture (ZLA) & Distributed Edge Fabric
+- **Problem**: Centralized architectures store sensitive customer and session data on remote cloud databases, creating significant regulatory exposure, high database costs, and data breach liability.
+- **Engineering Solution**: Architected Zero-Liability Architecture (ZLA)—a client-side application paradigm utilizing Blazor WebAssembly PWAs, peer-to-peer WebRTC data channels, and local-first in-process DuckDB analytical databases. Paired with Cloudflare Workers AI and Durable Objects for stateless global edge coordination (**$<35\text{ ms}$** latency) with zero persistent server-side client data retention.
+
+---
+
 ## 📈 Empirical System Benchmarks & Telemetry Performance
 
 | Benchmark Metric | Hardware / Execution Target | Verified Ground-Truth Result |
@@ -51,8 +77,8 @@ All real-time desktop perception, vector retrieval, and audio transport run on d
 | **Neuromotor Biometric Liveness Verification** | GPU Register Kinematic Derivation | **$<300\ \mu\text{s}$** per trajectory segment |
 | **Neural TTS Spectrogram Synthesis (Kokoro Mel)** | Direct VRAM CUFFT $\rightarrow$ WASAPI Ring | **$<100\ \mu\text{s}$** ($>1,000\times$ Real-Time Factor) |
 | **Win32 Native Process Array Dispatch** | C# P-Invoke `CreateProcessW` | **$4.20\text{ ms}$** (vs $142\text{ ms}$ PowerShell) |
-| **DuckDB Telemetry Stream Ingestion** | Local NVMe NVMe In-Process Engine | **$>50,000\text{ events/sec}$** (unbounded streaming) |
-| **Cloudflare Durable Object Edge State Teleportation** | Edge Router (`Watchtowers`) | **$<35\text{ ms}$** global latency |
+| **DuckDB Telemetry Stream Ingestion** | Local NVMe In-Process Engine | **$>50,000\text{ events/sec}$** (unbounded streaming) |
+| **Cloudflare Durable Object Edge State Sync** | Edge Router (`Watchtowers`) | **$<35\text{ ms}$** global latency |
 
 ---
 
@@ -79,28 +105,6 @@ All real-time desktop perception, vector retrieval, and audio transport run on d
 
 ---
 
-## ⚙️ Open-Source Systems & Low-Latency Repositories
-
-- **`dxgi-cuda-frame-delta`**: Direct3D 11 DXGI surface mirror mapped directly into CUDA device memory for $<0.5\text{ ms}$ frame differencing.
-- **[`speech-mcp-server`](https://github.com/yavru421/speech-mcp-server)**: High-performance C# .NET 10 MCP server wrapping Kokoro ONNX neural speech with low-latency WASAPI output.
-- **`win32-process-array-dispatcher`**: Bypasses slow shell interpreters (`cmd`/PowerShell) via direct `CreateProcessW` argument vectors ($4.2\text{ ms}$ execution).
-- **[`METRO-SPEC-2026`](https://dondlingergc.com/architecture)**: Complete system whitepaper on Zero-Liability Architecture and distributed multi-tier orchestration.
-
----
-
-## 🚀 Live Production Portfolio (`dondlingergc.com`)
-
-| Production Service | Live Endpoint | Architectural Highlights |
-| :--- | :--- | :--- |
-| **Architecture Whitepaper** | [dondlingergc.com/architecture](https://dondlingergc.com/architecture) | Full interactive specification for ZLA and Metropolis OS. |
-| **TAP Field Verification** | [tap.dondlingergc.com](https://tap.dondlingergc.com) | MudBlazor WASM client for cryptographic field tracking. |
-| **SkyDrop Peer Transfer** | [skydrop.dondlingergc.com](https://skydrop.dondlingergc.com) | End-to-end encrypted WebRTC file transfer with zero central cloud storage. |
-| **Timeline ZLA Builder** | [timelinezla.dondlingergc.com](https://timelinezla.dondlingergc.com) | Real-time WebRTC collaborative daily chronology and PDF compiler. |
-| **WaZ Weather Dashboard** | [wazweather.dondlingergc.com](https://wazweather.dondlingergc.com) | Live NEXRAD atmospheric radar telemetry and USGS river hydrology. |
-| **Heckler Audio Synth** | [heckler.dondlingergc.com](https://heckler.dondlingergc.com) | WebAudio WASM audio synthesis, frequency metering, and diagnostic soundboard. |
-
----
-
 ## 🛠️ Technology Stack
 
 ```
@@ -119,17 +123,6 @@ All real-time desktop perception, vector retrieval, and audio transport run on d
 
 ---
 
-## 🎓 Education & Professional Credentials
-
-- **Skilled Trades Journeyman Foundations**: 10+ Years General Contracting, Precision Estimating, Jobsite Management & Mechanical Engineering Discipline
-- **FAA Part 107 Remote Pilot Certificate**: Commercial Small Unmanned Aircraft Systems (sUAS) Operator
-- **Wisconsin DSPS Continuing Education**: General Contractor & Mechanical Safety Codes
-- **High School Diploma**
-
----
-
-## 📬 Contact & Engineering Inquiries
+## 📬 Direct Engineering Inquiries
 
 - **Email:** [johndondlinger21@gmail.com](mailto:johndondlinger21@gmail.com)
-- **Portfolio:** [dondlingergc.com](https://dondlingergc.com)
-- **GitHub:** [github.com/yavru421](https://github.com/yavru421)
