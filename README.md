@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./mcp_servers_metropolishud_ducks_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural (Featuring MetropolisHUD Ducks)" width="100%" />
+</p>
+
 # John Dondlinger
 ### Systems Architect | Low-Latency GPU Kernel Engineer | Creator of Metropolis & ZLA
 
@@ -11,12 +15,6 @@
   <a href="https://dotnet.microsoft.com/"><img src="https://img.shields.io/badge/C%23_.NET_10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" /></a>
   <a href="https://workers.cloudflare.com/"><img src="https://img.shields.io/badge/Cloudflare_Workers_%26_DO-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" /></a>
   <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/Rust_/_WASM-000000?style=for-the-badge&logo=rust&logoColor=white" /></a>
-</p>
-
----
-
-<p align="center">
-  <img src="./mcp_servers_metropolishud_ducks_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural (Featuring MetropolisHUD Ducks)" width="100%" />
 </p>
 
 ---
