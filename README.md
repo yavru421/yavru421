@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="./mcp_servers_metropolishud_ducks_mural_v1.0.jpg" alt="Metropolis OS Sovereign MCP Servers Foundry Mural" width="100%" />
+  <img src="./mcp_servers_metropolishud_ducks_mural_v1.0.jpg" alt="Metropolis OS MCP Servers Architecture Mural" width="100%" />
 </p>
 
 # John Dondlinger (`@yavru421`)
-### Staff Systems Architect | Low-Latency GPU Kernel Engineer | Distributed Edge Infrastructure
+### Staff Systems Architect | Low-Latency GPU Kernel Engineer | Distributed Systems & Edge Infrastructure
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=059669&center=true&vCenter=true&width=800&lines=NVIDIA+AD107+RTX+4060+Sovereign+CUDA+Foundry;Sub-Millisecond+Spatial+Perception+%26+UI+Grounding;56.62+%C2%B5s+Pure+GPU+Compute+(Nsight+Systems+2024.5);Bare-Metal+__dp4a+INT8+SIMD+in+32MB+L2+Cache;Zero-Liability+Distributed+Edge+%26+In-Process+Analytics" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=059669&center=true&vCenter=true&width=850&lines=NVIDIA+AD107+RTX+4060+Direct+CUDA+Engineering;Sub-Millisecond+Spatial+Perception+%26+UI+Grounding;56.62+%C2%B5s+Pure+GPU+Compute+(Nsight+Systems+2024.5);Bare-Metal+__dp4a+INT8+SIMD+in+32MB+L2+Cache;Zero-Liability+Distributed+Edge+%26+In-Process+Analytics" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -19,31 +19,33 @@
 
 ---
 
-> *"Engineering at the physical silicon boundary: eliminating Python runtime garbage collection, PyTorch memory allocation bloat, and CPU frame roundtrips through standalone, zero-dependency C++/CUDA kernels, in-process analytical engines, and zero-liability distributed edge systems."*
+> *"Engineering at the physical silicon boundary: eliminating Python runtime garbage collection, PyTorch memory allocation bloat, and CPU frame roundtrips through standalone, zero-dependency C++/CUDA kernels, in-process analytical engines, and zero-liability distributed edge architectures."*
 
 ---
 
 ### ⚡ Hardware Substrate & Execution Environment
+
 ```
 HOST: Acer Predator Helios Neo 16 • 16GB DDR5 4800MHz
 GPU:  NVIDIA GeForce RTX 4060 Laptop GPU (AD107 / SM_89, 8GB GDDR6, 32MB L2 Cache)
+BUS:  PCIe 4.0 x8 Interconnect (~15.75 GB/s Unidirectional Theoretical Saturation)
 PATH: DXGI Desktop Duplication ──> D3D11 Interop (0-Copy) ──> SM_89 L2/Registers (<50 ns dispatch jitter)
 ```
 
 ---
 
-### ⚡ Sovereign CUDA Foundry (AD107 / SM_89) & Nsight Systems 2024.5 Benchmarks
-*All kernels compiled to standalone C-ABI Dynamic Link Libraries (`.dll`) targeting `sm_89`. Zero PyTorch or OpenCV runtime overhead.*
+### ⚡ Native CUDA Acceleration Suite (AD107 / SM_89) & Profiled Benchmarks
+*All kernels compiled to standalone C-ABI Dynamic Link Libraries (`.dll`) targeting `sm_89`. Zero PyTorch, OpenCV, or external runtime overhead.*
 
 | Engine / Suite | Dynamic Library | Fused CUDA Kernels | Verified Latency | Hardware Memory & Acceleration Substrate |
 | :--- | :--- | :--- | :--- | :--- |
 | **Spatial UI Grounding** | `cu_ui_grounding.dll` | `cu_morphological_gradient_kernel`<br>`cu_tile_cluster_kernel`<br>`cu_filter_ui_geometry_kernel` | **$56.62\ \mu\text{s}$** compute<br>($>17,500\text{ FPS}$) | Fused luminance gradient + $32\times32$ CCL bounding box extraction. **$<50\text{ ns}$ dispatch jitter**. Zero cloud vision tokens. |
 | **Desktop Perception** | `screen_agent_cuda.dll` | `cu_adaptive_delta_fused`<br>`bgra_to_rgb_normalized_kernel` | **$<0.5\text{ ms}$** delta<br>($>950\text{ FPS}$) | $16\times16$ macroblock MSE register reduction (`__shfl_down_sync`) + 1,020-Byte bitmask. **99.99% PCIe bus bandwidth saved**. |
-| **Vector Retrieval** | `turbo_cuda.dll` | `cu_arrow_sq8_search`<br>`dot_product_float4_kernel` | **$15\text{ ns}$** search<br>($>238\text{M}$ vecs/sec) | 32MB on-chip Ada Lovelace L2 Cache vault + hardware `__dp4a` INT8 SIMD. Zero PyTorch overhead. |
+| **Vector Retrieval** | `turbo_cuda.dll` | `cu_arrow_sq8_search`<br>`dot_product_float4_kernel` | **$15\text{ ns}$** search<br>($>238\text{M}$ vecs/sec) | 32MB on-chip Ada Lovelace L2 Cache vault + hardware `__dp4a` INT8 SIMD. Zero host staging overhead. |
 | **Biometric Liveness** | `turbo_cuda.dll` | `cu_neuromotor_clc`<br>`cu_eval_lacquaniti_power_law` | **$<300\ \mu\text{s}$** clc | Parallel Spearman Rank ($\rho_s$) + biological Lacquaniti 2/3 power law ($\beta \approx -0.333$) for human neuromotor verification. |
 | **Audio Transport** | `kokoro_mel_bridge.dll` | `cu_compute_mel_spectrogram` | **$<0.1\text{ ms}$** mel<br>($>1000\times\text{ RTF}$) | Direct VRAM Hanning window + 1D CUFFT + 80-band Mel-filterbank feeding WASAPI circular ring buffers. |
 | **Visual Inpainting** | `object_clear_cuda.dll` | `binarize_and_dilate_kernel`<br>`gaussian_blur_9x9_kernel` | **$1.2\text{ ms}$** (4K) | $21\times21$ elliptical dilation + $9\times9$ separable Gaussian blur for zero-seam object eradication. |
-| **Memory Paging** | `vram_swap_cuda.dll` | `cu_vram_swap_kernel` | **PCIe 4.0 x8 Saturation** | Dual-stream UVA lock-free ring buffer overlapping host DMA paging with tensor compute. |
+| **Memory Paging** | `vram_swap_cuda.dll` | `cu_vram_swap_kernel` | **PCIe 4.0 x8 Saturation** | Dual-stream UVA lock-free ring buffer overlapping pinned host RAM DMA paging with tensor compute. |
 | **Vision Primitives** | `cu_vision_lite.dll` | `cu_vision_lite` | **$0.12\text{ ms}$** | Direct DXGI swapchain memory mapping directly into CUDA device memory without OpenCV (`cv2`) overhead. |
 
 ---
