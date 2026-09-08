@@ -6,7 +6,7 @@
 ### Staff Systems Architect | Low-Latency GPU Kernel Engineer | Distributed Edge Infrastructure
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=059669&center=true&vCenter=true&width=800&lines=NVIDIA+AD107+RTX+4060+Sovereign+CUDA+Foundry;Sub-Millisecond+Spatial+Perception+%26+UI+Grounding;56.62+%C2%B5s+Pure+GPU+Compute+(Nsight+Systems+2024.5);Bare-Metal+__dp4a+INT8+SIMD+in+32MB+L2+Cache;Zero-Liability+Architecture+(ZLA)+Distributed+Edge" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=059669&center=true&vCenter=true&width=800&lines=NVIDIA+AD107+RTX+4060+Sovereign+CUDA+Foundry;Sub-Millisecond+Spatial+Perception+%26+UI+Grounding;56.62+%C2%B5s+Pure+GPU+Compute+(Nsight+Systems+2024.5);Bare-Metal+__dp4a+INT8+SIMD+in+32MB+L2+Cache;Zero-Liability+Distributed+Edge+%26+In-Process+Analytics" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
 ```
 HOST: Acer Predator Helios Neo 16 • 16GB DDR5 4800MHz
 GPU:  NVIDIA GeForce RTX 4060 Laptop GPU (AD107 / SM_89, 8GB GDDR6, 32MB L2 Cache)
-PATH: DXGI Desktop Duplication ──> Zero-Copy VRAM ──> Ada Lovelace L2 Cache (<50 ns dispatch jitter)
+PATH: DXGI Desktop Duplication ──> D3D11 Interop (0-Copy) ──> SM_89 L2/Registers (<50 ns dispatch jitter)
 ```
 
 ---
@@ -43,7 +43,7 @@ PATH: DXGI Desktop Duplication ──> Zero-Copy VRAM ──> Ada Lovelace L2 Ca
 | **Biometric Liveness** | `turbo_cuda.dll` | `cu_neuromotor_clc`<br>`cu_eval_lacquaniti_power_law` | **$<300\ \mu\text{s}$** clc | Parallel Spearman Rank ($\rho_s$) + biological Lacquaniti 2/3 power law ($\beta \approx -0.333$) for human neuromotor verification. |
 | **Audio Transport** | `kokoro_mel_bridge.dll` | `cu_compute_mel_spectrogram` | **$<0.1\text{ ms}$** mel<br>($>1000\times\text{ RTF}$) | Direct VRAM Hanning window + 1D CUFFT + 80-band Mel-filterbank feeding WASAPI circular ring buffers. |
 | **Visual Inpainting** | `object_clear_cuda.dll` | `binarize_and_dilate_kernel`<br>`gaussian_blur_9x9_kernel` | **$1.2\text{ ms}$** (4K) | $21\times21$ elliptical dilation + $9\times9$ separable Gaussian blur for zero-seam object eradication. |
-| **Memory Paging** | `vram_swap_cuda.dll` | `cu_vram_swap_kernel` | **$64\text{ GB/s}$** | Dual-stream PCIe 4.0 Unified Virtual Addressing (UVA) lock-free ring buffer across 8GB boundary. |
+| **Memory Paging** | `vram_swap_cuda.dll` | `cu_vram_swap_kernel` | **PCIe 4.0 x8 Saturation** | Dual-stream UVA lock-free ring buffer overlapping host DMA paging with tensor compute. |
 | **Vision Primitives** | `cu_vision_lite.dll` | `cu_vision_lite` | **$0.12\text{ ms}$** | Direct DXGI swapchain memory mapping directly into CUDA device memory without OpenCV (`cv2`) overhead. |
 
 ---
